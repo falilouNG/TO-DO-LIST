@@ -1,0 +1,21 @@
+.example-card{
+    color: #178A8A;
+    background-color: whitesmoke;
+}
+
+.subtitle{
+    color: black;
+}
+
+.delete{
+    color: red;
+}
+
+.edit{
+    color: #178A8A;
+}
+.list{
+    width: 100%;
+    color: black;
+}
+

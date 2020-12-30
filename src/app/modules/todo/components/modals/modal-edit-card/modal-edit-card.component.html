@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Update todo card</h1>
+<div mat-dialog-content>
+  <p>Update your card</p>
+  <mat-form-field>
+    <input placeholder="Title" matInput [(ngModel)]="data.title">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Subtitle" [(ngModel)]="data.subTitle">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Update</button>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+</div>

@@ -1,0 +1,45 @@
+<mat-spinner class="align-center" *ngIf="loading"></mat-spinner>
+<mat-card *ngIf="!loading" class="example-card" >
+  <mat-card-header>
+    <mat-card-title>
+      <span>{{card.title}}
+        <button class="align-center" matTooltip="Add new item" (click)="openDialog()" mat-icon-button>
+        <mat-icon >add</mat-icon></button>
+         <button class="align-center" matTooltip="Add new item" (click)="reloadContent()" mat-icon-button>
+        <mat-icon>refresh</mat-icon></button>
+      </span>
+    </mat-card-title>
+    <mat-card-subtitle class="subtitle">{{card.subtitle}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+
+<!-- modified to add the panel to list items instead of showing directly the list -->
+  <mat-expansion-panel class="panel">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Items
+      </mat-panel-title>
+      
+    </mat-expansion-panel-header>
+    <mat-list class="list">
+      <mat-list-item *ngFor="let item of card.content">
+        <p mat-line>{{item.title}} </p>
+        <p mat-line> {{item.updatedAt | date}} </p>
+        <button (click)="editItem(item)" mat-icon-button>
+          <mat-icon class="edit">edit</mat-icon>
+        </button>
+        <button mat-icon-button >
+          <mat-icon  (click)="removeItem(item)" class="delete" >remove</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+    
+  </mat-card-content>
+  <mat-card-actions class="text-right">
+    <!-- Todo: Edit card -->
+    <button (click)="editCardDialog(card)" mat-icon-button class="edit"><mat-icon >edit</mat-icon></button>
+    <button (click)="removeCard()" mat-icon-button><mat-icon class="delete">delete</mat-icon></button>
+  </mat-card-actions>
+</mat-card>
